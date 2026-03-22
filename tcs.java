@@ -122,45 +122,70 @@ public class tcs {
     // }
 
     // question 5 find the element that occurs once in a array
+    // public static void main(String args[]) {
+
+    // Scanner sc = new Scanner(System.in);
+    // int n = sc.nextInt();
+    // int nums[] = new int[n];
+    // for (int i = 0; i < n; i++) {
+    // nums[i] = sc.nextInt();
+    // }
+
+    // /*
+    // * // int nums[] = { 2, 3, 5, 4, 5, 3, 4, 6 };
+    // * // int n = nums.length;
+    // * int res = 0;
+    // *
+    // * HashMap<Integer, Integer> map = new HashMap<>();
+    // *
+    // * for (int i = 0; i < n; i++) {
+    // * map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
+    // * }
+    // *
+    // * for (int i = 0; i < n; i++) {
+    // * if (map.get(nums[i]) == 1) {
+    // * // for printing the element that occurs once
+    // * System.out.println(nums[i] + " ");
+    // *
+    // * // res = nums[i];
+    // * // break;
+    // * }
+    // * }
+    // *
+    // * // System.out.println(res);
+    // *
+    // */
+    // // this method can only be usefull if only one element is ocurring
+    // // int XOR = 0;
+    // // for (int num : nums) {
+    // // XOR = XOR ^ num;
+    // // }
+    // // System.out.println(XOR);
+    // }
+
+    // question 6 mimimum flip bit to convert the number i.e. from both side
+    // like for 10 to 7
+    // 10 == 1010
+    // 7 == 0111
+    // so we have to flip 3 bits to convert 10 to 7
+
     public static void main(String args[]) {
 
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int nums[] = new int[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = sc.nextInt();
-        }
+        int start = sc.nextInt();
+        int goal = sc.nextInt();
 
-        /*
-         * // int nums[] = { 2, 3, 5, 4, 5, 3, 4, 6 };
-         * // int n = nums.length;
-         * int res = 0;
-         * 
-         * HashMap<Integer, Integer> map = new HashMap<>();
-         * 
-         * for (int i = 0; i < n; i++) {
-         * map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
-         * }
-         * 
-         * for (int i = 0; i < n; i++) {
-         * if (map.get(nums[i]) == 1) {
-         * // for printing the element that occurs once
-         * System.out.println(nums[i] + " ");
-         * 
-         * // res = nums[i];
-         * // break;
-         * }
-         * }
-         * 
-         * // System.out.println(res);
-         * 
-         */
-        // this method can only be usefull if only one element is ocurring
-        int XOR = 0;
-        for (int num : nums) {
-            XOR = XOR ^ num;
+        // XOR operation
+        int n = start ^ goal;
+        // ystem.out.println(Integer.bitCount(n));
+
+        int count = 0;
+        while (n != 0) {
+            n = n & (n - 1);
+            count++;
         }
-        System.out.println(XOR);
+        System.out.println(count);
+
     }
 
 }
